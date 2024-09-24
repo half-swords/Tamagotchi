@@ -1,5 +1,13 @@
-    def main():
-        tamagotchi = create_tamagotchi()
+import time
+from EatSnackCommand import EatSnackCommand
+from SleepCommand import SleepCommand
+from TakeMedicineCommand import TakeMedicineCommand
+from TakeShowerCommand import TakeShowerCommand
+from PassTimeCommand import PassTimeCommand
+from CreateTamagotchi import CreateTamagotchi
+
+def main():
+        tamagotchi = CreateTamagotchi()
 
         commands = {
             '1': EatSnackCommand(),
@@ -9,8 +17,8 @@
             '5': PassTimeCommand(),
         }
 
-        while tamagotchi.is_alive():
-            tamagotchi.display_status()
+        while tamagotchi.isalive():
+            tamagotchi.displaystatus()
             action = input("Choose an action: 1. Eat Snack 2. Sleep 3. Take Shower 4. Take Medicine 5. Pass Time 6. Quit: ")
 
             if action in commands:
@@ -26,5 +34,5 @@
         print(f"{tamagotchi.name} has passed away. Game over!")
 
 
-    if __name__ == "__main__":
-        main()
+if name == "__main":
+    main()
