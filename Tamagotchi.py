@@ -42,16 +42,16 @@ class Tamagotchi(ABC):
 
     def age_tamagotchi(self):
         self.age += 1
-        self.hunger -= random.randint(5, 15)
-        self.joy -= random.randint(5, 15)
-        self.shape -= random.randint(5, 10)
-        self.cleanness -= random.randint(1, 10)
+        self.hunger -= random.randint(8, 20)
+        self.joy -= random.randint(8, 20)
+        self.shape -= random.randint(8, 15)
+        self.cleanness -= random.randint(10, 20)
         if self.hunger < 0 or self.joy < 0 or self.shape < 0 or self.cleanness < 0:
-            self.sickness += 10
+            self.sickness += random.randint(5, 15)
         self.update_phase()
 
     def is_alive(self):
-        return self.phase != Phase.DEAD
+        return self.phase != Phase.DEAD and self.sickness < 40
 
     def display_status(self):
         print(f"\n--- {self.name}'s Status ---")
